@@ -1,5 +1,3 @@
-import React from "react";
-import styled from "styled-components";
 import { Test } from "./component/test";
 
 function App() {
@@ -9,9 +7,5 @@ function App() {
     </div>
   );
 }
-
-const TestDiv = styled.div`
-  color: red;
-`;
 
 export default App;
