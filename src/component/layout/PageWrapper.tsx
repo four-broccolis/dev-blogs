@@ -8,17 +8,18 @@ interface PageWrapperProps {
 
 export default function PageWrapper({ children }: PageWrapperProps) {
   return (
-    <Background>
+    <GlobalStyle>
       <Header />
       {children}
-    </Background>
+    </GlobalStyle>
   );
 }
 
-const Background = styled.div`
+const GlobalStyle = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  font-family: "Noto Sans KR", sans-serif;
 
   background: linear-gradient(
       117.58deg,
