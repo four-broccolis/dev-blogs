@@ -1,5 +1,5 @@
-export const bfColors = {
-  white: "#FFFFFF",
-  black: "#000000",
-  navy: "#363658",
-};
+export default class Colors {
+  static white = "#FFFFFF";
+  static black = "#000000";
+  static navy = "#363658";
+}
