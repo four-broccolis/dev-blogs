@@ -1,11 +1,7 @@
-import { Test } from "./component/test";
+import FeedPage from "./page/FeedPage";
 
 function App() {
-  return (
-    <div>
-      <Test text="Hello, react"></Test>
-    </div>
-  );
+  return <FeedPage></FeedPage>;
 }
 
 export default App;
