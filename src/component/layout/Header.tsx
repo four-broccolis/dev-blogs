@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import BfColors from "../../constant/colors";
-import BfStrings from "../../constant/strings";
+import BfValues from "../../constant/values";
 import { BfFonts } from "../../constant/styles";
 
 export default function Header() {
   return (
     <Row>
-      <FeedPageButton>{BfStrings.feedTabName}</FeedPageButton>
-      <MemberPageButton>{BfStrings.memberTabName}</MemberPageButton>
+      <FeedPageButton>{BfValues.feedTabName}</FeedPageButton>
+      <MemberPageButton>{BfValues.memberTabName}</MemberPageButton>
     </Row>
   );
 }
@@ -20,10 +19,10 @@ const Row = styled.div`
 
 const FeedPageButton = styled.div`
   ${BfFonts.tabNameBold};
-  color: ${BfColors.white};
+  cursor: pointer;
 `;
 
 const MemberPageButton = styled.div`
   ${BfFonts.tabName};
-  color: ${BfColors.white};
+  cursor: pointer;
 `;

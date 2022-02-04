@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import BfColors from "../../constant/colors";
 import Header from "./Header";
 
 interface PageWrapperProps {
@@ -20,6 +21,7 @@ const GlobalStyle = styled.div`
   height: 100vh;
   overflow: hidden;
   font-family: "Noto Sans KR", sans-serif;
+  color: ${BfColors.white};
 
   background: linear-gradient(
       117.58deg,

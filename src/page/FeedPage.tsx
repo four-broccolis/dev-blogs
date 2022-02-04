@@ -1,3 +1,9 @@
+import PostItem from "../component/feedPage/PostItem";
+
 export default function FeedPage() {
-  return <div>feed</div>;
+  return (
+    <div>
+      <PostItem />
+    </div>
+  );
 }
