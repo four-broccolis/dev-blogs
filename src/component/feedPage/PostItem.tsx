@@ -5,10 +5,17 @@ import BfValues from "../../constant/values";
 import { Post } from "../../model/post";
 import Formatter from "../../util/formatter";
 
-export default function PostItem() {
+interface Props {
+  num: string;
+}
+
+export default function PostItem({ num }: Props) {
   return (
     <CardLayout>
-      <Platform>{Post.sample.platform}</Platform>
+      <Platform>
+        {num}
+        {Post.sample.platform}
+      </Platform>
       <PlanetImage></PlanetImage>
       <Title>{Post.sample.title}</Title>
       <Body>{Post.sample.body}</Body>
