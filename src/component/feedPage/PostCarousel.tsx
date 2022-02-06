@@ -19,15 +19,28 @@ export default function PostCarousel() {
   };
 
   return (
-    <StyledSlider {...sliderSettings}>
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-    </StyledSlider>
+    // <StyledSlider {...sliderSettings}>
+    //   <PostItem />
+    //   <PostItem />
+    //   <PostItem />
+    //   <PostItem />
+    //   <PostItem />
+    //   <PostItem />
+    //   <PostItem />
+    // </StyledSlider>
+    <ArrowAndWindow>
+      <PrevButton />
+      <Window>
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+        <PostItem />
+      </Window>
+      <NextButton />
+    </ArrowAndWindow>
   );
 }
 
@@ -40,19 +53,42 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
-const PrevButton = styled.button`
+const ArrowAndWindow = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Window = styled.span`
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+
+  > * {
+    margin: 30px;
+  }
+`;
+
+const PrevButton = styled.div`
   transform: scaleX(-1);
   width: 0;
   height: 0;
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  border-left: 60px solid ${BfColors.white};
+  margin-right: 32px;
+
+  opacity: 0.8;
+  border-top: 36px solid transparent;
+  border-bottom: 36px solid transparent;
+  border-left: 36px solid ${BfColors.white};
+  cursor: pointer;
 `;
 
 const NextButton = styled.div`
   width: 0;
   height: 0;
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  border-left: 60px solid ${BfColors.white};
+  margin-left: 32px;
+
+  opacity: 0.8;
+  border-top: 36px solid transparent;
+  border-bottom: 36px solid transparent;
+  border-left: 36px solid ${BfColors.white};
+  cursor: pointer;
 `;
