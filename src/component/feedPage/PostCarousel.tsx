@@ -83,6 +83,7 @@ const CardList = styled.div<{ offset: string }>`
   padding: 40px;
   white-space: nowrap;
   transform: translateX(${(props) => props.offset});
+  transition: all 1s;
 
   > * {
     margin: 24px;
