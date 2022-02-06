@@ -1,20 +1,19 @@
 import styled from "styled-components";
-import PostItem from "./PostItem";
 import BfColors from "../../constant/colors";
 import Slider, { Settings } from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ReactNode, useState } from "react";
-import ReactDOM from "react-dom";
+import BfValues from "../../constant/values";
 
 interface Props {
   children: ReactNode[];
 }
 
 export default function PostCarousel({ children }: Props) {
-  const currentHeadIndex = useState(0);
-  const transformX = useState(0);
+  const [currentHeadIndex, setCurrentHeadIndex] = useState(0);
+  const [offset, setOffset] = useState("0px");
 
   const sliderSettings: Settings = {
     dots: false,
@@ -29,7 +28,19 @@ export default function PostCarousel({ children }: Props) {
 
   const onClickPrev = () => {};
 
-  const onClickNext = () => {};
+  const onClickNext = () => {
+    if (currentHeadIndex + 3 < children.length) {
+      const newIndex: number = currentHeadIndex + 3;
+      const newOffset: string = newOffsetByIndex(newIndex);
+
+      setCurrentHeadIndex(newIndex);
+      setOffset(newOffset);
+    }
+  };
+
+  const newOffsetByIndex = (index: number): string => {
+    return `calc((${BfValues.postItemWidth} + 96px) * ${index} * -1)`;
+  };
 
   return (
     // <StyledSlider {...sliderSettings}>
@@ -42,7 +53,7 @@ export default function PostCarousel({ children }: Props) {
     //   <PostItem />
     // </StyledSlider>
     <Carousel>
-      <CardList>{children}</CardList>
+      <CardList offset={offset}>{children}</CardList>
       <Buttons>
         <PrevButton onClick={onClickPrev} />
         <NextButton onClick={onClickNext} />
@@ -61,17 +72,14 @@ const StyledSlider = styled(Slider)`
 `;
 
 const Carousel = styled.div`
-  position: relative;
   width: 100vw;
 `;
 
-const CardList = styled.span`
-  position: relative;
+const CardList = styled.div<{ offset: string }>`
   margin-left: 40px;
   padding: 40px;
-  display: block;
   white-space: nowrap;
-  overflow: hidden;
+  transform: translateX(${(props) => props.offset});
 
   > * {
     margin: 24px;
@@ -80,7 +88,7 @@ const CardList = styled.span`
 
 const Buttons = styled.div`
   position: absolute;
-  top: 47%;
+  top: 50%;
   width: calc(100vw - 128px);
   display: flex;
   justify-content: space-between;

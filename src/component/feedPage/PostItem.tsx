@@ -18,7 +18,7 @@ export default function PostItem() {
 }
 
 const CardLayout = styled.div`
-  width: calc((100vw - 96px) / 5);
+  width: calc(${BfValues.postItemWidth});
   padding: 24px 32px;
   aspect-ratio: 5/7.5;
   display: inline-flex;
