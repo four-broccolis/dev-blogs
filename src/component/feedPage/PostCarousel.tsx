@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import BfColors from "../../constant/colors";
-import Slider, { Settings } from "react-slick";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { ReactNode, useState } from "react";
 import BfValues from "../../constant/values";
 
@@ -15,18 +12,18 @@ export default function PostCarousel({ children }: Props) {
   const [currentHeadIndex, setCurrentHeadIndex] = useState(0);
   const [offset, setOffset] = useState("0px");
 
-  const sliderSettings: Settings = {
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3.5,
-    slidesToScroll: 3,
-    prevArrow: <PrevButton className="slick-arrow" />,
-    nextArrow: <NextButton />,
-  };
+  const onClickPrev = () => {
+    if (currentHeadIndex - 3 >= 0) {
+      const newIndex: number = currentHeadIndex - 3;
+      const newOffset: string = newOffsetByIndex(newIndex);
 
-  const onClickPrev = () => {};
+      setCurrentHeadIndex(newIndex);
+      setOffset(newOffset);
+    } else {
+      setCurrentHeadIndex(0);
+      setOffset("0px");
+    }
+  };
 
   const onClickNext = () => {
     if (currentHeadIndex + 3 < children.length) {
@@ -46,15 +43,6 @@ export default function PostCarousel({ children }: Props) {
   };
 
   return (
-    // <StyledSlider {...sliderSettings}>
-    //   <PostItem />
-    //   <PostItem />
-    //   <PostItem />
-    //   <PostItem />
-    //   <PostItem />
-    //   <PostItem />
-    //   <PostItem />
-    // </StyledSlider>
     <Carousel>
       <CardList offset={offset}>{children}</CardList>
       <Buttons>
@@ -64,15 +52,6 @@ export default function PostCarousel({ children }: Props) {
     </Carousel>
   );
 }
-
-const StyledSlider = styled(Slider)`
-  padding: 100px;
-
-  .slick-prev:before,
-  .slick-next:before {
-    content: "" !important;
-  }
-`;
 
 const Carousel = styled.div`
   width: 100vw;
