@@ -10,6 +10,5 @@ export default function FeedPage() {
 }
 
 const Wrapper = styled.div`
-  width: 100vw;
-  margin-left: 300px;
+  margin: 0 4vw;
 `;

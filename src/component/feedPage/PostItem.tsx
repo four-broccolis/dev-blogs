@@ -5,17 +5,10 @@ import BfValues from "../../constant/values";
 import { Post } from "../../model/post";
 import Formatter from "../../util/formatter";
 
-interface Props {
-  num: string;
-}
-
-export default function PostItem({ num }: Props) {
+export default function PostItem() {
   return (
     <CardLayout>
-      <Platform>
-        {num}
-        {Post.sample.platform}
-      </Platform>
+      <Platform>{Post.sample.platform}</Platform>
       <PlanetImage></PlanetImage>
       <Title>{Post.sample.title}</Title>
       <Body>{Post.sample.body}</Body>
@@ -25,11 +18,10 @@ export default function PostItem({ num }: Props) {
 }
 
 const CardLayout = styled.div`
-  width: 450px;
-  height: 640px;
+  width: calc((100vw - 96px) / 5);
   padding: 24px 32px;
-  aspect-ratio: 5/7;
-  display: flex;
+  aspect-ratio: 5/7.5;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
