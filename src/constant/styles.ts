@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export class BfFonts {
-  static head = "font-size: 30px; line-height: 35px;";
-  static body = "font-size: 20px; line-height: 23px;";
-  static caption = "font-size: 16px; line-height: 19px;";
+  static head = "font-size: 30px; line-height: 40px;";
+  static body = "font-size: 20px; line-height: 30px; font-weight: 300;";
+  static caption = "font-size: 16px; line-height: 19px; font-weight: 300;";
 
   static tabName = "font-size: 36px; line-height: 42px;";
   static tabNameBold = "font-weight: bold; font-size: 40px; line-height: 47px;";

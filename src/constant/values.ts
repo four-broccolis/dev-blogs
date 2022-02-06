@@ -3,5 +3,5 @@ export default class BfValues {
   static memberTabName: string = "Astronauts";
 
   static maxTitleLines: number = 2;
-  static maxBodyLines: number = 3;
+  static maxBodyLines: number = 4;
 }

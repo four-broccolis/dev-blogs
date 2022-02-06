@@ -32,7 +32,7 @@ export default function PostCarousel() {
 }
 
 const StyledSlider = styled(Slider)`
-  padding: 100px !important;
+  padding: 100px;
 
   .slick-prev:before,
   .slick-next:before {
