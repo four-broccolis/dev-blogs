@@ -5,8 +5,17 @@ import Slider, { Settings } from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ReactNode, useState } from "react";
+import ReactDOM from "react-dom";
 
-export default function PostCarousel() {
+interface Props {
+  children: ReactNode[];
+}
+
+export default function PostCarousel({ children }: Props) {
+  const currentHeadIndex = useState(0);
+  const transformX = useState(0);
+
   const sliderSettings: Settings = {
     dots: false,
     arrows: true,
@@ -18,6 +27,10 @@ export default function PostCarousel() {
     nextArrow: <NextButton />,
   };
 
+  const onClickPrev = () => {};
+
+  const onClickNext = () => {};
+
   return (
     // <StyledSlider {...sliderSettings}>
     //   <PostItem />
@@ -28,19 +41,13 @@ export default function PostCarousel() {
     //   <PostItem />
     //   <PostItem />
     // </StyledSlider>
-    <ArrowAndWindow>
-      <PrevButton />
-      <Window>
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-        <PostItem />
-      </Window>
-      <NextButton />
-    </ArrowAndWindow>
+    <Carousel>
+      <CardList>{children}</CardList>
+      <Buttons>
+        <PrevButton onClick={onClickPrev} />
+        <NextButton onClick={onClickNext} />
+      </Buttons>
+    </Carousel>
   );
 }
 
@@ -53,26 +60,37 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
-const ArrowAndWindow = styled.div`
-  display: flex;
-  align-items: center;
+const Carousel = styled.div`
+  position: relative;
+  width: 100vw;
 `;
 
-const Window = styled.span`
+const CardList = styled.span`
+  position: relative;
+  margin-left: 40px;
+  padding: 40px;
   display: block;
   white-space: nowrap;
   overflow: hidden;
 
   > * {
-    margin: 30px;
+    margin: 24px;
   }
+`;
+
+const Buttons = styled.div`
+  position: absolute;
+  top: 47%;
+  width: calc(100vw - 128px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
 `;
 
 const PrevButton = styled.div`
   transform: scaleX(-1);
   width: 0;
   height: 0;
-  margin-right: 32px;
 
   opacity: 0.8;
   border-top: 36px solid transparent;
@@ -84,7 +102,6 @@ const PrevButton = styled.div`
 const NextButton = styled.div`
   width: 0;
   height: 0;
-  margin-left: 32px;
 
   opacity: 0.8;
   border-top: 36px solid transparent;

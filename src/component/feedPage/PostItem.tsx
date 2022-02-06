@@ -7,7 +7,7 @@ import Formatter from "../../util/formatter";
 
 export default function PostItem() {
   return (
-    <CardLayout>
+    <CardLayout className="post-item">
       <Platform>{Post.sample.platform}</Platform>
       <PlanetImage></PlanetImage>
       <Title>{Post.sample.title}</Title>
