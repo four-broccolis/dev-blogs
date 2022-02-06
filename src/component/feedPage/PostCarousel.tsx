@@ -35,6 +35,9 @@ export default function PostCarousel({ children }: Props) {
 
       setCurrentHeadIndex(newIndex);
       setOffset(newOffset);
+    } else {
+      setCurrentHeadIndex(0);
+      setOffset("0px");
     }
   };
 
