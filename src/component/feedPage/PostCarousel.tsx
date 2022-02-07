@@ -9,11 +9,18 @@ interface Props {
 }
 
 export default function PostCarousel({ children }: Props) {
-  const { offset, onClickPrev, onClickNext, hasPrevButton } = useCarousel(children.length);
+  const { offset, onClickPrev, onClickNext, hasPrevButton, getOpacityByIndex } = useCarousel(
+    children.length,
+  );
 
   return (
     <Carousel>
-      <CardList offset={offset}>{children}</CardList>
+      <CardList offset={offset}>
+        {children.map((item: ReactNode, index: number) => {
+          const opacity: number = getOpacityByIndex(index);
+          return <OpacityWrapper opacity={opacity}>{item}</OpacityWrapper>;
+        })}
+      </CardList>
       <Buttons>
         {hasPrevButton() ? <PrevButton onClick={onClickPrev} /> : <div />}
         <NextButton onClick={onClickNext} />
@@ -36,6 +43,11 @@ const CardList = styled.div<{ offset: string }>`
   > * {
     margin: 24px;
   }
+`;
+
+const OpacityWrapper = styled.div<{ opacity: number }>`
+  display: inline-flex;
+  opacity: ${(props) => props.opacity};
 `;
 
 const Buttons = styled.div`
