@@ -9,13 +9,13 @@ interface Props {
 }
 
 export default function PostCarousel({ children }: Props) {
-  const { offset, onClickPrev, onClickNext } = useCarousel(children.length);
+  const { offset, onClickPrev, onClickNext, hasPrevButton } = useCarousel(children.length);
 
   return (
     <Carousel>
       <CardList offset={offset}>{children}</CardList>
       <Buttons>
-        <PrevButton onClick={onClickPrev} />
+        {hasPrevButton() ? <PrevButton onClick={onClickPrev} /> : <div />}
         <NextButton onClick={onClickNext} />
       </Buttons>
     </Carousel>
@@ -31,7 +31,7 @@ const CardList = styled.div<{ offset: string }>`
   padding: 40px;
   white-space: nowrap;
   transform: translateX(${(props) => props.offset});
-  transition: all 1s;
+  transition: all 0.8s;
 
   > * {
     margin: 24px;

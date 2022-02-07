@@ -38,5 +38,7 @@ export default function useCarousel(childrenLength: number) {
     return `calc((${BfValues.postItemWidth} + 96px) * ${index} * -1)`;
   };
 
-  return { offset, onClickPrev, onClickNext };
+  const hasPrevButton = (): boolean => currentHeadIndex !== defaultHeadIndex;
+
+  return { offset, onClickPrev, onClickNext, hasPrevButton };
 }
