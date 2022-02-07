@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import styled from "styled-components";
 import PostCarousel from "../component/feedPage/PostCarousel";
 import PostItem from "../component/feedPage/PostItem";
+import useCarousel from "../hook/useCarousel";
 
 export default function FeedPage() {
   const children: ReactNode[] = [
@@ -13,6 +14,7 @@ export default function FeedPage() {
     <PostItem />,
     <PostItem />,
   ];
+
   return (
     <CarouselWrapper>
       <PostCarousel children={children} />

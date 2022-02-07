@@ -1,46 +1,15 @@
 import styled from "styled-components";
 import BfColors from "../../constant/colors";
 
-import { ReactNode, useState } from "react";
-import BfValues from "../../constant/values";
+import { ReactNode } from "react";
+import useCarousel from "../../hook/useCarousel";
 
 interface Props {
   children: ReactNode[];
 }
 
 export default function PostCarousel({ children }: Props) {
-  const [currentHeadIndex, setCurrentHeadIndex] = useState(0);
-  const [offset, setOffset] = useState("0px");
-
-  const onClickPrev = () => {
-    if (currentHeadIndex - 3 >= 0) {
-      const newIndex: number = currentHeadIndex - 3;
-      const newOffset: string = newOffsetByIndex(newIndex);
-
-      setCurrentHeadIndex(newIndex);
-      setOffset(newOffset);
-    } else {
-      setCurrentHeadIndex(0);
-      setOffset("0px");
-    }
-  };
-
-  const onClickNext = () => {
-    if (currentHeadIndex + 3 < children.length) {
-      const newIndex: number = currentHeadIndex + 3;
-      const newOffset: string = newOffsetByIndex(newIndex);
-
-      setCurrentHeadIndex(newIndex);
-      setOffset(newOffset);
-    } else {
-      setCurrentHeadIndex(0);
-      setOffset("0px");
-    }
-  };
-
-  const newOffsetByIndex = (index: number): string => {
-    return `calc((${BfValues.postItemWidth} + 96px) * ${index} * -1)`;
-  };
+  const { offset, onClickPrev, onClickNext } = useCarousel(children.length);
 
   return (
     <Carousel>
