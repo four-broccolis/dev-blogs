@@ -4,12 +4,13 @@ import { BfFonts } from "../../constant/styles";
 import BfValues from "../../constant/values";
 import { Post } from "../../model/post";
 import Formatter from "../../util/formatter";
+import PlanetImg from './PlanetImg';
 
 export default function PostItem() {
   return (
     <CardLayout className="post-item">
       <Platform>{Post.sample.platform}</Platform>
-      <PlanetImage></PlanetImage>
+      <PlanetImage><PlanetImg/></PlanetImage>
       <Title>{Post.sample.title}</Title>
       <Body>{Post.sample.body}</Body>
       <CreatedAt>{Formatter.formatDate(Post.sample.createdAt)}</CreatedAt>
