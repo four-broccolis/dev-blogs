@@ -1,21 +1,26 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components'
-import MemberItem from './memberItem';
 
 // const memberDates = [
 //   {name: 영인}
 // ]
 
-export default function Members() {
+interface Props {
+  children: ReactNode[];
+}
+
+export default function Members({children}:Props) {
     return (
       <MemberList>
-        <MemberItem/>
+        {children}
       </MemberList>
     )
 }
 
 const MemberList = styled.div`
-width: 100%;
-  margin-left: 40px;
+display:flex;
+  width: 100%;
+  height: 70%;
   padding: 40px;
-  white-space: nowrap;
-`;
+  justify-content: space-around;
+  `

@@ -40,8 +40,10 @@ const Platform = styled.div`
 const PlanetImage = styled.div`
   width: 45%;
   margin: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   aspect-ratio: 1/1;
-  background-color: ${BfColors.white};
 `;
 
 const Title = styled.div`

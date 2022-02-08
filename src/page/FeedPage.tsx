@@ -13,6 +13,7 @@ export default function FeedPage() {
     <PostItem />,
     <PostItem />,
   ];
+
   return (
     <CarouselWrapper>
       <PostCarousel children={children} />

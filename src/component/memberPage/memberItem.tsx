@@ -20,9 +20,9 @@ export default function MemberItem() {
 
 const CardLayout = styled.div`
   width: calc(${BfValues.postItemWidth});
-  padding: 24px 32px;
-  aspect-ratio: 5/7.5;
-  display: inline-flex;
+  padding: 24px 16px;
+  height: 100%;
+  display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -30,6 +30,11 @@ const CardLayout = styled.div`
   background-color: ${BfColors.navy};
   border-radius: 40px;
   filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.31));
+
+  &:hover {
+    transform: scale(1.03);
+    transition: 0.2s transform ease-in-out;
+  }
 `;
 
 const Name = styled.div`
