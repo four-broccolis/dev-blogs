@@ -1,19 +1,10 @@
-import { ReactNode } from "react";
 import styled from 'styled-components'
-import MemberItem from '../component/memberPage/memberItem';
 import Members from '../component/memberPage/members';
 
 export default function MemberPage() {
-  const children: ReactNode[] = [
-    <MemberItem />,
-    <MemberItem />,
-    <MemberItem />,
-    <MemberItem />,
-  ];
-
   return (
     <MembersWrapper>
-      <Members children={children}/>
+      <Members />
     </MembersWrapper>
   );
 }
