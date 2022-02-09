@@ -6,12 +6,10 @@ import MemberPage from "./page/MemberPage";
 function App() {
   return (
     <PageWrapper>
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={<FeedPage />} />
           <Route path="/member" element={<MemberPage />} />
         </Routes>
-      </BrowserRouter>
     </PageWrapper>
   );
 }

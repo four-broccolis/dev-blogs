@@ -19,8 +19,8 @@ export default function Members({children}:Props) {
 
 const MemberList = styled.div`
 display:flex;
+align-items: center;
   width: 100%;
   height: 70%;
-  padding: 40px;
   justify-content: space-around;
   `

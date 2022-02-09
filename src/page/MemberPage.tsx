@@ -21,6 +21,6 @@ export default function MemberPage() {
 const MembersWrapper = styled.div`
   display: flex;
   height: 90%;
-  margin: 0 4vw;
+  margin: 0 7.6vw;
   align-items: center;
 `;
