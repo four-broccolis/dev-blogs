@@ -2,7 +2,14 @@ import styled from 'styled-components'
 import MemberItem from './MemberItem';
 
 export default function Members() {
-  const memberData = {
+
+  interface membData {
+    1: Object,
+    2: Object,
+    3: Object,
+    4: Object,
+  }
+  const memberData: membData = {
     1:{
         id: '1',
         name: "수경 / Broccolism",
@@ -31,7 +38,7 @@ export default function Members() {
         id: '4',
         name: "준규 / JUN",
         say: "디자인도 좋고 개발도 좋아요..",
-        role: `"멤버페이지 구현합니다" "디자인"`,
+        role:`멤버페이지 구현합니다`,
         blog: "https://sinbakhae.tistory.com/"
     }
   }

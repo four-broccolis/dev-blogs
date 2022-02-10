@@ -1,20 +1,7 @@
-import styled from 'styled-components';
+import styled, {css}from 'styled-components';
 import BfColors from '../../constant/colors'
 import BfValues from '../../constant/values'
-// import { Post2 } from './Post2';
-// export class Post2 {
-//     name!: string;
-//     say!: string;
-//     role!: string;
-//     blog!: string;
-
-//     static sample: Post2 = {
-//         name: "영인/Broccolism",
-//         say: "나는 브로콜리야!, 브로콜리를 사랑하지!",
-//         role: "프론트엔드 담당",
-//         blog: "https://velog.io@broccolism"
-//     }
-// }
+import { useState } from 'react';
 
 interface Props {
   memberData: {
@@ -26,10 +13,15 @@ interface Props {
   };
 }
 
-export default function MemberItem({memberData}: Props) {
+export default function MemberItem({memberData }: Props) {
 const { name, say, role, blog, id} = memberData;
+const [open, setOpen] = useState(false)
+
 return (
-    <CardLayout>
+    <CardLayout 
+    onmouseenter={() => {setOpen(true)}}
+     onmouseleave={()=>{setOpen(false)}}
+     >
     <Name>{name}</Name>
     <MemberImage><Image src={process.env.PUBLIC_URL + `/images/member${id}.png`}></Image></MemberImage>
     <Say>{say}</Say>
@@ -45,6 +37,8 @@ const CardLayout = styled.div`
   padding: 24px 16px;
   height: 100%;
   display: flex;
+  opacity: 60%;
+  cursor: pointer;
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -53,9 +47,13 @@ const CardLayout = styled.div`
   filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.31));
 
   &:hover {
+    opacity: 100%;
     transform: scale(1.03) translateY(-20px);
     transition: 0.2s transform ease-in-out;
   }
+  &.open:hover {
+  }
+
 `
 
 const Name = styled.div`
@@ -81,10 +79,10 @@ const Say = styled.div`
 `
 
 const Role = styled.div`
-  width: 54%;
+  width: 90%;
   font-size: 18px;
-  word-wrap: break-word;
-  word-break: keep-all;
+  /* word-wrap: break-word;
+  word-break: keep-all; */
 `
 
 const BlogURL = styled.div`
