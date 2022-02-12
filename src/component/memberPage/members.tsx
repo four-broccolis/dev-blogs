@@ -37,8 +37,8 @@ export default function Members() {
     4:{
         id: '4',
         name: "준규 / JUN",
-        say: "디자인도 좋고 개발도 좋아요..",
-        role:`멤버페이지 구현합니다`,
+        say: "'개발보다 고양이발이 더 귀여워'",
+        role:`프론트엔드 담당`,
         blog: "https://sinbakhae.tistory.com/"
     }
   }
