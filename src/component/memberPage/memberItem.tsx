@@ -39,6 +39,8 @@ const Say = styled.div`
     -webkit-text-stroke: 0vw #383d52;
     border-right: none;
     overflow: hidden;
+    border-right: 2px solid white;
+
     ${isHover === true ? animate : ''}
   }
 
@@ -46,12 +48,13 @@ const Say = styled.div`
     0%,
     10%{
       width: 0;
-      border-right: 2px solid white;
+    border-right: 2px solid transparent;
     }
     70%,
     100% {
       width: 100%;
-      border-right: 2px solid white;
+    border-right: 2px solid transparent;
+
     }
 }
 `
