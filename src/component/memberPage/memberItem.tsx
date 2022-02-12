@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
 import BfColors from '../../constant/colors'
 import BfValues from '../../constant/values'
-import { useState } from 'react';
 
 interface Props {
   membData: {
@@ -13,33 +13,79 @@ interface Props {
   };
 }
 
+
 export default function MemberItem({membData }: Props) {
 const { name, say, role, blog, id} = membData;
-const [open, setOpen] = useState(false)
+const [isHover, setIsHover] = useState(false);
+
+const animate = css`
+    animation:  animate 3.5s linear 1 ;
+`
+const Say = styled.div`
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: transparent;
+  position: relative;
+  text-align: start;
+
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: white;
+    -webkit-text-stroke: 0vw #383d52;
+    border-right: none;
+    overflow: hidden;
+    ${isHover === true ? animate : ''}
+  }
+
+  @keyframes animate {
+    0%,
+    10%{
+      width: 0;
+      border-right: 2px solid white;
+    }
+    70%,
+    100% {
+      width: 100%;
+      border-right: 2px solid white;
+    }
+}
+`
 
 return (
     <CardLayout 
-    onMouseEnter={() => {setOpen(true)}}
-     onMouseLeave={()=>{setOpen(false)}}
-     >
-    <Name>{name}</Name>
-    <MemberImage><Image src={process.env.PUBLIC_URL + `/images/member${id}.png`}></Image></MemberImage>
-    <Say>{say}</Say>
-    <Role>{role}</Role>
-    <BlogURL href={blog} target="_blank">{blog}</BlogURL>
+    onMouseOver={() => {
+      setIsHover(true)
+    }
+    }
+    onMouseOut ={() => {
+      setIsHover(false)
+    }}
+    >
+      <Name>{name}</Name>
+      <MemberImage><Image src={process.env.PUBLIC_URL + `/images/member${id}.png`}></Image></MemberImage>
+      <MemInfo>
+        <Role>{role}</Role>
+        <Say data-text={say}>{say}</Say>
+        <BlogURL href={blog} target="_blank">{blog}</BlogURL>
+      </MemInfo>
     </CardLayout>
   )
 }
 
 const CardLayout = styled.div`
   width: calc(${BfValues.postItemWidth});
-  padding: 24px 16px;
-  height: 90%;
+  padding: 24px 10px;
   display: flex;
   opacity: 100%;
   flex-direction: column;
   text-align: center;
   align-items: center;
+  justify-content: center;
   background-color: ${BfColors.navy};
   border-radius: 40px;
   filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.31));
@@ -47,7 +93,7 @@ const CardLayout = styled.div`
   &:hover {
     opacity: 100%;
     background-color: #151527;
-    transform: scale(1.03) translateY(-20px);
+    transform: scale(1.05) translateY(-20px);
     transition: 0.2s transform ease-in-out;
   }
 `
@@ -56,47 +102,45 @@ const Name = styled.div`
   font-size: 18px;
   font-weight: 300;
   width: 100%;
+  margin-bottom: 30px;
 `
 
 const MemberImage = styled.div`
-  width: 160px;
-  height: 160px;
-  margin: 30px 0;
+  width: 10vw;
+  margin-bottom: 6px;
+
   cursor: pointer;
-
-
-  &:hover {
-    transform: scale(1.05) rotate(0.05turn);
-    transition: 0.2s transform ease-in-out;
-  }
 `
 
 const Image = styled.img`
-  width: 160px;
-  height: 160px;
+  width: 10vw;
+  &:hover {
+    transform: rotate(20deg);
+    transition: 0.2s transform ease-in-out;
+  }
 `
-
-const Say = styled.div`
-  width:90%;
-  font-size: 22px;
+const MemInfo = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
 `
 
 const Role = styled.div`
   width: 90%;
-  font-size: 19px;
-  font-weight: 300;
-  position: absolute;
-  bottom: 150px;
-  /* word-wrap: break-word;
-  word-break: keep-all; */
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
 `
 
 const BlogURL = styled.a`
   width: 100%;
-  position: absolute;
-  bottom: 36px;
-  font-weight: 3s00;
+  font-weight: 300;
   color: white;
+  font-size: 13px;
+  word-wrap: break-word;
   cursor: pointer;
-
 `
+

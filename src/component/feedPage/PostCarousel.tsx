@@ -65,7 +65,7 @@ const CardList = styled.div<{ offset: string }>`
   transition: all 1s;
 
   > * {
-    margin: 24px;
+    margin: 20px;
   }
 `;
 

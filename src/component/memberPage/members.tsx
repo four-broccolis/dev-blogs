@@ -6,9 +6,9 @@ export default function Members() {
   const memberData = [
     {
         id: '1',
-        name: "수경 / Broccolism",
+        name: "수경 / Sookyeongyeom",
         say: "'나는 커서 뭐가 될까?'",
-        role: "백앤드 담당",
+        role: "Back-end",
         blog: "https://github.com/sookyeongyeom/TIL"
     },
 
@@ -16,7 +16,7 @@ export default function Members() {
         id: '2',
         name: "지윤 / Broccolism",
         say: "나는 브로콜리야!, 브로콜리를 사랑하지!",
-        role: "백엔드 담당",
+        role: "Back-end",
         blog: "https://github.com/yoon-park"
     },
 
@@ -24,15 +24,15 @@ export default function Members() {
       id: '3',
       name: "영인 / Broccolism",
       say: "'개발도 좋고 먹는것도 좋아요..'",
-      role: "프론트엔드 담당",
+      role: "Front-end",
       blog: "https://velog.io@broccolism"
   },
     
    {
         id: '4',
-        name: "준규 / JUN",
+        name: "준규 / Jun",
         say: "'개발보다 고양이발이 더 귀여워'",
-        role:`프론트엔드 담당`,
+        role:`Front-end`,
         blog: "https://sinbakhae.tistory.com/"
     }
   ]
@@ -47,13 +47,12 @@ export default function Members() {
 }
 
 const MemberList = styled.div`
-display:flex;
-flex-direction: row;
-align-items: center;
-animation: moveX 1.3s ease-in-out;
-  width: 100%;
-  height: 70%;
+  display:flex;
+  flex-direction: row;
   justify-content: space-around;
+  animation: moveX 1.3s ease-in-out;
+  width: 100vw;
+  height: 70vh;
 
   @keyframes moveX {
     0% {

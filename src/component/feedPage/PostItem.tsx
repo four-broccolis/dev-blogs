@@ -29,6 +29,13 @@ const CardLayout = styled.div`
   background-color: ${BfColors.navy};
   border-radius: 40px;
   filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.31));
+
+  &:hover {
+    background-color: #151527;
+    transform: scale(1.05) translateY(-20px);
+    transition: 0.2s transform ease-in-out;
+    cursor: pointer;
+  }
 `;
 
 const Platform = styled.div`
@@ -44,6 +51,19 @@ const PlanetImage = styled.div`
   align-items: center;
   justify-content: center;
   aspect-ratio: 1/1;
+
+  &:hover {
+    animation: rotateSpace 4s infinite;
+  }
+
+  @keyframes rotateSpace {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 const Title = styled.div`
