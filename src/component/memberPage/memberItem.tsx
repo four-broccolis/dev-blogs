@@ -1,10 +1,10 @@
-import styled, {css}from 'styled-components';
+import styled from 'styled-components';
 import BfColors from '../../constant/colors'
 import BfValues from '../../constant/values'
 import { useState } from 'react';
 
 interface Props {
-  memberData: {
+  membData: {
     name: string
     say: string
     role: string
@@ -13,8 +13,8 @@ interface Props {
   };
 }
 
-export default function MemberItem({memberData }: Props) {
-const { name, say, role, blog, id} = memberData;
+export default function MemberItem({membData }: Props) {
+const { name, say, role, blog, id} = membData;
 const [open, setOpen] = useState(false)
 
 return (
@@ -28,8 +28,7 @@ return (
     <Role>{role}</Role>
     <BlogURL href={blog} target="_blank">{blog}</BlogURL>
     </CardLayout>
-  
-)
+  )
 }
 
 const CardLayout = styled.div`
