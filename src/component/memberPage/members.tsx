@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import MemberItem from './MemberItem';
 
 export default function Members() {
@@ -55,7 +55,22 @@ const MemberList = styled.div`
 display:flex;
 flex-direction: row;
 align-items: center;
+animation: moveX 1s ease-in-out;
   width: 100%;
   height: 70%;
   justify-content: space-around;
+
+  @keyframes moveX {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.5);
+    }
+    
+    100% {
+      opacity: 1;
+      transform: translateX(0px) scale(1);
+
+    }
+  }
   `
+

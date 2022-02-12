@@ -96,8 +96,7 @@ const BlogURL = styled.a`
   width: 100%;
   position: absolute;
   bottom: 36px;
-  font-weight: 300;
-  text-decoration: none;
+  font-weight: 3s00;
   color: white;
   cursor: pointer;
 
