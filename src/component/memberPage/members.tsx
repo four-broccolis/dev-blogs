@@ -57,7 +57,7 @@ const MemberList = styled.div`
   @keyframes moveX {
     0% {
       opacity: 0;
-      transform: translateX(-50px) scale(0.5);
+      transform: translateX(-50px) scale(0.2);
     }
     
     100% {

@@ -55,6 +55,20 @@ export default function PostCarousel({ children }: Props) {
 
 const Carousel = styled.div`
   width: 100vw;
+  animation: moveX 1.3s ease-in-out;
+
+@keyframes moveX {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px) scale(0.5);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0px) scale(1);
+
+  }
+}
 `;
 
 const CardList = styled.div<{ offset: string }>`
@@ -67,6 +81,8 @@ const CardList = styled.div<{ offset: string }>`
   > * {
     margin: 20px;
   }
+
+
 `;
 
 const Buttons = styled.div`
