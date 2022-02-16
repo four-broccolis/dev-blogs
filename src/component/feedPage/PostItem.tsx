@@ -11,8 +11,8 @@ export default function PostItem() {
       <Platform>{Post.sample.platform}</Platform>
       <PlanetImage></PlanetImage>
       <Title>{Post.sample.title}</Title>
-      <Body>{Post.sample.body}</Body>
-      <CreatedAt>{Formatter.formatDate(Post.sample.createdAt)}</CreatedAt>
+      <Body>{Post.sample.description}</Body>
+      <CreatedAt>{Formatter.formatDate(Post.sample.published)}</CreatedAt>
     </CardLayout>
   );
 }
