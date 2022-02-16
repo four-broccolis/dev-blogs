@@ -18,7 +18,11 @@ export default function PostCarousel({ children }: Props) {
       <CardList offset={offset}>
         {children.map((item: ReactNode, index: number) => {
           const opacity: number = getOpacityByIndex(index);
-          return <OpacityWrapper opacity={opacity}>{item}</OpacityWrapper>;
+          return (
+            <OpacityWrapper key={`${index}-${opacity}`} opacity={opacity}>
+              {item}
+            </OpacityWrapper>
+          );
         })}
       </CardList>
       <Buttons>

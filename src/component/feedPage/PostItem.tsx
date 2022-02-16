@@ -5,14 +5,24 @@ import BfValues from "../../constant/values";
 import { Post } from "../../model/post";
 import Formatter from "../../util/formatter";
 
-export default function PostItem() {
+interface Props {
+  post: Post;
+}
+export default function PostItem({ post }: Props) {
+  const moveToPost = () => {
+    const newTab = window.open(post.link, "_blank");
+    if (newTab != null) {
+      newTab.focus();
+    }
+  };
+
   return (
-    <CardLayout className="post-item">
-      <Platform>{Post.sample.platform}</Platform>
+    <CardLayout className="post-item" onClick={moveToPost}>
+      <Platform>{post.platform}</Platform>
       <PlanetImage></PlanetImage>
-      <Title>{Post.sample.title}</Title>
-      <Body>{Post.sample.description}</Body>
-      <CreatedAt>{Formatter.formatDate(Post.sample.published)}</CreatedAt>
+      <Title>{post.title}</Title>
+      <Body>{post.description}</Body>
+      <CreatedAt>{Formatter.formatDate(post.published)}</CreatedAt>
     </CardLayout>
   );
 }
@@ -28,6 +38,7 @@ const CardLayout = styled.div`
   background-color: ${BfColors.navy};
   border-radius: 40px;
   filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.31));
+  cursor: pointer;
 `;
 
 const Platform = styled.div`
