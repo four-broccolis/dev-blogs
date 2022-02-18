@@ -23,9 +23,11 @@ export default function FeedPage() {
   };
 
   const httpTest = async () => {
+    console.log("starting http request");
     const response = await axios.get("https://randomuser.me/api/", getConfig);
     const name: string = response.data.results[0]["name"].first ?? "cannot get data.";
     setTestResult(name);
+    console.log("done requesting");
   };
 
   useEffect(() => {
