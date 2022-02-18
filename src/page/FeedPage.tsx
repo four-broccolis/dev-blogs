@@ -30,7 +30,7 @@ export default function FeedPage() {
 
   useEffect(() => {
     httpTest();
-    getPosts();
+    // getPosts();
   }, []);
 
   return (
