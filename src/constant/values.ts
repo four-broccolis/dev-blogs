@@ -1,5 +1,5 @@
 export default class BfValues {
-  static serverHost: string = "http://sookyeongyeom.com:5000";
+  static serverHost: string = "http://sookyeongyeom.com";
   static feedTabName: string = "BF";
   static memberTabName: string = "Astronauts";
   static postItemWidth: string = "(100vw - 96px) / 5";

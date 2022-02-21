@@ -8,7 +8,6 @@ import { Post } from "../model/post";
 
 export default function FeedPage() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [testResult, setTestResult] = useState<string>();
 
   const getConfig = {
     headers: {
@@ -16,28 +15,20 @@ export default function FeedPage() {
     },
   };
   const getPosts = async () => {
-    const response = await axios.get(BfValues.serverHost + "/", getConfig);
-    // const data = response.data;
-    setPosts(response.data);
-    console.log(response);
-  };
-
-  const httpTest = async () => {
-    console.log("starting http request");
-    const response = await axios.get("https://randomuser.me/api/", getConfig);
-    const name: string = response.data.results[0]["name"].first ?? "cannot get data.";
-    setTestResult(name);
-    console.log("done requesting");
+    try {
+      const response = await axios.get(BfValues.serverHost + "/", getConfig);
+      setPosts(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
-    httpTest();
-    // getPosts();
+    getPosts();
   }, []);
 
   return (
     <CarouselWrapper>
-      <div>{testResult}</div>
       <PostCarousel
         children={posts.map((post: Post) => (
           <PostItem key={post.link} post={post} />
