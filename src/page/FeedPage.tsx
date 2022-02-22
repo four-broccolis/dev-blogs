@@ -17,6 +17,7 @@ export default function FeedPage() {
   const getPosts = async () => {
     try {
       const response = await axios.get(BfValues.serverHost + "/", getConfig);
+      console.log(response);
       setPosts(response.data);
     } catch (err) {
       console.log(err);

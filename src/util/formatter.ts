@@ -10,7 +10,8 @@ enum KrDayOfWeek {
 
 export default class Formatter {
   static formatDate(dateString: string): string {
-    const date: Date = new Date(dateString);
+    const krTimeDiff = 9 * 60 * 60 * 1000;
+    const date: Date = new Date(Date.parse(dateString) - krTimeDiff);
     const year: number = date.getFullYear();
     const month: number = date.getMonth() + 1;
     const dayOfMonth: number = date.getDate();
