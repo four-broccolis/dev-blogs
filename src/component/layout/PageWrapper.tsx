@@ -22,7 +22,6 @@ const GlobalStyle = styled.div`
   overflow: hidden;
   font-family: "Noto Sans KR", sans-serif;
   color: ${BfColors.white};
-
   background: linear-gradient(
       117.58deg,
       rgba(251, 122, 255, 0.85) 15.51%,
