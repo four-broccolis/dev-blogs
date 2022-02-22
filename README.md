@@ -1,3 +1,5 @@
+블로그 포스팅 모임에 참여한 분들의 포스트를 시간 순으로 보여줍니다. 이제 편하게 확인하세요!!
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
