@@ -1,10 +1,6 @@
-## react-client
-
-블로그 모음 사이트 리액트 웹 클라이언트
 https://bf-dev-blogs.herokuapp.com/
 
-![image](https://user-images.githubusercontent.com/45515332/155129493-d2fe72a2-4b89-488e-a417-b25ce6fb0212.png)
-![image](https://user-images.githubusercontent.com/45515332/155129587-383f5b0e-da15-4d5b-ab42-a66dcebc9eba.png)
+블로그 포스팅 모임에 참여한 분들의 포스트를 시간 순으로 보여줍니다. 이제 편하게 확인하세요!!
 
 ## Contributors ✨
 
@@ -24,3 +20,8 @@ https://bf-dev-blogs.herokuapp.com/
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## Preview
+
+![image](https://user-images.githubusercontent.com/45515332/155129493-d2fe72a2-4b89-488e-a417-b25ce6fb0212.png)
+![image](https://user-images.githubusercontent.com/45515332/155129587-383f5b0e-da15-4d5b-ab42-a66dcebc9eba.png)
