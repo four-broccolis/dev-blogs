@@ -22,7 +22,7 @@ export default function Members() {
     {
       id: "3",
       name: "영인 / Broccolism",
-      say: "'개발도 좋고 먹는것도 좋아요..'",
+      say: "'개발도 좋고 먹는것도 좋아..'",
       role: "Front-end",
       blog: "https://velog.io/@broccolism",
     },
@@ -63,5 +63,26 @@ const MemberList = styled.div`
       opacity: 1;
       transform: translateX(0px) scale(1);
     }
+  }
+
+  @media screen and (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: scroll;
+    height: 100%;
+
+    padding: 30px;
+    > * {
+      margin: 10px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 80vh;
+    justify-content: start;
+    align-items: center;
   }
 `;

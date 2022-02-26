@@ -18,6 +18,9 @@ export default function Header() {
 
 const Row = styled.div`
   padding: 24px 48px;
+  @media screen and (max-height: 840px) {
+    padding: 16px;
+  }
   display: flex;
   justify-content: space-between;
 `;
