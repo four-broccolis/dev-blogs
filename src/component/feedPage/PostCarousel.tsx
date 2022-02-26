@@ -3,6 +3,7 @@ import BfColors from "../../constant/colors";
 
 import { ReactNode } from "react";
 import useCarousel from "../../hook/useCarousel";
+import BfValues from "../../constant/values";
 
 interface Props {
   children: ReactNode[];
@@ -35,46 +36,94 @@ export default function PostCarousel({ children }: Props) {
 
 const Carousel = styled.div`
   width: 100vw;
+
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    justify-content: center;
+  }
   animation: moveX 1.3s ease-in-out;
 
-@keyframes moveX {
-  0% {
-    opacity: 0;
-    transform: translateX(-500px) scale(0.5);
-  }
-  
-  100% {
-    opacity: 1;
-    transform: translateX(0px) scale(1);
+  @keyframes moveX {
+    0% {
+      opacity: 0;
+      transform: translateX(-500px) scale(0.5);
+    }
 
+    100% {
+      opacity: 1;
+      transform: translateX(0px) scale(1);
+    }
   }
-}
 `;
 
 const CardList = styled.div<{ offset: string }>`
+  display: flex;
   margin-left: 40px;
   padding: 40px;
-  white-space: nowrap;
   transform: translateX(${(props) => props.offset});
+
+  @media screen and (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    height: 80vh;
+    flex-direction: column;
+    margin-left: 0px;
+    padding: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: start;
+    transform: translateX(0px);
+  }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    flex-direction: column;
+    margin-left: 0px;
+    padding: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: start;
+    transform: translateX(0px);
+  }
+
+  white-space: nowrap;
   transition: all 0.8s;
 
   > * {
     margin: 20px;
+    @media screen and (max-width: 1200px) {
+      margin: 16px 0px 0px 0px;
+    }
   }
-
-
 `;
 
 const OpacityWrapper = styled.div<{ opacity: number }>`
   display: inline-flex;
   opacity: ${(props) => props.opacity};
+
+  @media screen and (max-width: 1200px) {
+    width: 40vw;
+    opacity: 1;
+  }
+  @media screen and (max-width: 768px) {
+    width: 70vw;
+    opacity: 1;
+  }
 `;
 
 const Buttons = styled.div`
+  display: flex;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+
   position: absolute;
   top: 50%;
   width: calc(100vw - 128px);
-  display: flex;
   justify-content: space-between;
   z-index: 2;
 `;

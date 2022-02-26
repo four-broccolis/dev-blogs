@@ -18,7 +18,7 @@ export default function PostItem({ post }: Props) {
   };
 
   return (
-    <CardLayout className="post-item" onClick={moveToPost}>
+    <ItemLayout className="post-item" onClick={moveToPost}>
       <PlatformAndWriter>
         <Platform>{post.platform}</Platform>
         <Writer>{post.name.substring(0, 3)}</Writer>
@@ -29,11 +29,11 @@ export default function PostItem({ post }: Props) {
       <Title>{post.title}</Title>
       <Body>{post.description}</Body>
       <CreatedAt>{Formatter.formatDate(post.published)}</CreatedAt>
-    </CardLayout>
+    </ItemLayout>
   );
 }
 
-const CardLayout = styled.div`
+const ItemLayout = styled.div`
   width: calc(${BfValues.postItemWidth});
   padding: 24px 32px;
   aspect-ratio: 5/7.5;
@@ -52,9 +52,22 @@ const CardLayout = styled.div`
     transition: 0.2s transform ease-in-out;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    filter: none;
+    margin: 0px;
+    overflow: hidden;
+    aspect-ratio: 5/8;
+  }
 `;
 
 const PlatformAndWriter = styled.div`
+  ${BfFonts.caption};
+  @media screen and (max-width: 1200px) {
+    ${BfFonts.captionSmall}
+  }
+
   width: 100%;
   display: flex;
   align-items: start;
@@ -62,12 +75,10 @@ const PlatformAndWriter = styled.div`
 `;
 
 const Platform = styled.div`
-  ${BfFonts.caption};
   text-align: start;
 `;
 
 const Writer = styled.div`
-  ${BfFonts.caption};
   margin-left: 8px;
   text-align: start;
 `;
@@ -96,6 +107,11 @@ const PlanetImage = styled.div`
 
 const Title = styled.div`
   ${BfFonts.head}
+  @media screen and (max-width: 1200px) {
+    ${BfFonts.body}
+    font-weight: 400;
+  }
+
   width: 100%;
   margin-top: 12px;
   text-align: start;
@@ -116,6 +132,10 @@ const Title = styled.div`
 
 const Body = styled.div`
   ${BfFonts.body}
+  @media screen and (max-width: 1200px) {
+    ${BfFonts.caption}
+  }
+
   width: 100%;
   margin-top: 15px;
   text-align: start;
@@ -136,6 +156,10 @@ const Body = styled.div`
 
 const CreatedAt = styled.div`
   ${BfFonts.caption};
+  @media screen and (max-width: 1200px) {
+    ${BfFonts.captionSmall}
+  }
+
   width: 100%;
   margin-top: 62px;
   text-align: end;

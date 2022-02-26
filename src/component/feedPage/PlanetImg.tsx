@@ -11,6 +11,6 @@ export default function PlanetImg<T>(props: T) {
 }
 
 const Image = styled.img`
-  width: 135px;
-  height: 135px;
+  width: 100%;
+  aspect-ratio: 1;
 `;

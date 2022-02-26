@@ -4,9 +4,10 @@ export class BfFonts {
   static head = "font-size: 30px; line-height: 40px;";
   static body = "font-size: 20px; line-height: 30px; font-weight: 300;";
   static caption = "font-size: 16px; line-height: 19px; font-weight: 300;";
+  static captionSmall = "font-size: 14px; line-height: 16px; font-weight: 300;";
 
-  static tabName = "font-size: 36px; line-height: 42px;";
-  static tabNameBold = "font-weight: bold; font-size: 40px; line-height: 47px;";
+  static tabNameLarge = "font-weight: bold; font-size: 40px; line-height: 47px;";
+  static tabNameSmall = "font-weight: bold; font-size: 26px; line-height: 32px;";
 }
 
 export const BfBackground = styled.div`

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import BfValues from "../../constant/values";
 import { BfFonts } from "../../constant/styles";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <Row>
-      <StyledLink to='/'>
-      <FeedPageButton>{BfValues.feedTabName}</FeedPageButton>
+      <StyledLink to="/">
+        <TabButton>{BfValues.feedTabName}</TabButton>
       </StyledLink>
-      <StyledLink to='/member'>
-      <MemberPageButton>{BfValues.memberTabName}</MemberPageButton>
+      <StyledLink to="/member">
+        <TabButton>{BfValues.memberTabName}</TabButton>
       </StyledLink>
     </Row>
   );
@@ -22,19 +22,15 @@ const Row = styled.div`
   justify-content: space-between;
 `;
 
-const FeedPageButton = styled.div`
-  ${BfFonts.tabNameBold};
-  cursor: pointer;
-
-`;
-
-const MemberPageButton = styled.div`
-  ${BfFonts.tabName};
+const TabButton = styled.div`
+  ${BfFonts.tabNameLarge};
+  @media screen and (max-height: 840px) {
+    ${BfFonts.tabNameSmall};
+  }
   cursor: pointer;
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
-  
-`
+`;
