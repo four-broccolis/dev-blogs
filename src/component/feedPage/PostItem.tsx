@@ -55,10 +55,14 @@ const ItemLayout = styled.div`
 
   @media screen and (max-width: 1200px) {
     width: 100%;
+    height: 100%;
     filter: none;
     margin: 0px;
     overflow: hidden;
     aspect-ratio: 5/8;
+  }
+  @media screen and (max-width: 768px) {
+    aspect-ratio: auto;
   }
 `;
 

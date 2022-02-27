@@ -79,7 +79,7 @@ const CardList = styled.div<{ offset: string }>`
   @media screen and (max-width: 768px) {
     display: flex;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     flex-direction: column;
     margin-left: 0px;
     padding: 0px;
@@ -112,6 +112,7 @@ const OpacityWrapper = styled.div<{ opacity: number }>`
   @media screen and (max-width: 768px) {
     width: 70vw;
     opacity: 1;
+    margin: 30px;
   }
 `;
 
